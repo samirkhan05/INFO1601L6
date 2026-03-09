@@ -1,26 +1,29 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <h1>My Page</h1>
+<input id="myBtn" type="button" onclick="myFun()" value="click me"/>
 
-    <input type="button" id="alertBtn" value="alert" onclick="alertFun()"/>
-    <input type="button" value="confirm" onclick="confirmFun()"/>
-    <input type="button" value="prompt" onclick="promptFun()"/>
+<script>
+  function myFun(){
+    alert("hello");  
+  }
 
-    <span id="result"></span>
+  function myFun2(){
+    console.log("myFun2 called");
+  }
 
-    <script>
-const result = document.querySelector('#result');
-result.innerHTML = '<h2>My Span</h2>';
-result.style.color = 'blue';
+ //receives the event parameter from addEventListener high order function
+  function logEventType(event){
+    console.log(event.type);
+  }
 
-    </script>
-    <script src="script.js"></script>
-  </body>
-</html>
+  let myBtn = document.querySelector("#myBtn");
+
+  //attach myFun2 in addition to myFun to the click event of myBtn
+  myBtn.addEventListener("click", myFun2);
+
+  //There are other events such as mouseover and mouseout
+  
+  //Any callback passed to addeventListener receives an event object
+  myBtn.addEventListener("mouseover", logEventType);//logs 'mouseover'
+  myBtn.addEventListener("mouseout", logEventType);// logs 'mouseout'
+ //these events will fire when the mouse pointer hovers/passes over the button
+</script>
+
