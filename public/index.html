@@ -1,22 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Load Event</title>
-</head>
-<body>
+let obj2 = myobj;
 
-  <img id="myImage" src="https://www.placecage.com/200/300" alt="Placeholder"/>
+//obj2 and myobj are the same variable
 
-  <script>
-    function loaded() {
-      console.log('img loaded');
-    }
+obj2.name = "Shelly";
 
-    let myImage = document.querySelector("#myImage");
-    myImage.addEventListener("load", loaded);
-  </script>
+console.log(myobj.name);//Shelly
 
-</body>
-</html>
+//if you need to create a new object and copy its values use Object.assign
+
+let obj3 = {};
+Object.assign(obj3, myobj);
+
+obj3.name = 'Smith';
+
+console.log(myobj.name, obj3.name);//Shelly, Smith
