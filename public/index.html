@@ -1,29 +1,22 @@
-<input id="myBtn" type="button" onclick="myFun()" value="click me"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Load Event</title>
+</head>
+<body>
 
-<script>
-  function myFun(){
-    alert("hello");  
-  }
+  <img id="myImage" src="https://www.placecage.com/200/300" alt="Placeholder"/>
 
-  function myFun2(){
-    console.log("myFun2 called");
-  }
+  <script>
+    function loaded() {
+      console.log('img loaded');
+    }
 
- //receives the event parameter from addEventListener high order function
-  function logEventType(event){
-    console.log(event.type);
-  }
+    let myImage = document.querySelector("#myImage");
+    myImage.addEventListener("load", loaded);
+  </script>
 
-  let myBtn = document.querySelector("#myBtn");
-
-  //attach myFun2 in addition to myFun to the click event of myBtn
-  myBtn.addEventListener("click", myFun2);
-
-  //There are other events such as mouseover and mouseout
-  
-  //Any callback passed to addeventListener receives an event object
-  myBtn.addEventListener("mouseover", logEventType);//logs 'mouseover'
-  myBtn.addEventListener("mouseout", logEventType);// logs 'mouseout'
- //these events will fire when the mouse pointer hovers/passes over the button
-</script>
-
+</body>
+</html>
